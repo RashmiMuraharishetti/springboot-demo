@@ -8,6 +8,16 @@ import java.util.Date;
 @Entity
 public class Lesson {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
+
+    @Column(columnDefinition = "date")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date deliveredOn;
+
     public Lesson(){
 
     }
@@ -39,14 +49,4 @@ public class Lesson {
     public void setDeliveredOn(Date deliveredOn) {
         this.deliveredOn = deliveredOn;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private Long id;
-    private String title;
-
-    @Column(columnDefinition = "date")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date deliveredOn;
 }
